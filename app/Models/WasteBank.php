@@ -26,4 +26,9 @@ class WasteBank extends Model
     {
         return $this->hasMany(StoreTransaction::class);
     }
+
+    public function BankWasteTypes(): HasMany
+    {
+        return $this->hasMany(BankWasteType::class);
+    }
 }
