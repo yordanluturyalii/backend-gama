@@ -12,11 +12,15 @@ class WasteType extends Model
 
     protected $fillable = [
         'name',
-        'price',
     ];
 
     public function storeTransactionDetails(): HasMany
     {
         return $this->hasMany(StoreTransactionDetail::class);
+    }
+
+    public function BankWasteTypes(): HasMany
+    {
+        return $this->hasMany(BankWasteType::class);
     }
 }
