@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string("address");
             $table->string("phone_number")->unique();
             $table->string('email')->unique();
-            $table->string('google_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->decimal("wallet_balance", 16, 2)->default(0);
             $table->string('password');
