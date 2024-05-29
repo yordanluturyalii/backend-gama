@@ -18,4 +18,21 @@ class AuthRepositoryImpl implements AuthRepository {
 
         return $user;
     }
+
+    public function getDataUserOrCreate($data)
+    {
+        $user = User::query()->firstOrCreate([
+            'email' => $data->getEmail()
+        ], [
+            'full_name' => $data->getName(),
+            'address' => '',
+            'phone_number' => '',
+            'email' => $data->getEmail(),
+            'google_id' => $data->getId(),
+            'email_verified_at' => now(),
+            'password' => $data->getId()
+        ]);
+
+        return $user;
+    }
 }
