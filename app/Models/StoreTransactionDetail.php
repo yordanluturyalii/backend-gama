@@ -12,7 +12,7 @@ class StoreTransactionDetail extends Model
 
     protected $fillable = [
         'store_transaction_id',
-        'waste_type_id',
+        'bank_waste_type_id',
         'qty',
     ];
 
@@ -23,6 +23,6 @@ class StoreTransactionDetail extends Model
 
     public function wasteType(): BelongsTo
     {
-        return $this->belongsTo(WasteType::class);
+        return $this->belongsTo(BankWasteType::class);
     }
 }

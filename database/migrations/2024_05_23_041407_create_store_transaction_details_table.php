@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('store_transaction_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('store_transaction_id')->constrained()->onDelete('cascade');
-            $table->foreignId('waste_type_id')->constrained()->onDelete('cascade');
+            $table->foreignId('bank_waste_type_id')->constrained()->onDelete('cascade');
             $table->integer('qty');
             $table->timestamps();
         });

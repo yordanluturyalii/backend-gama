@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repository\Auth\AuthRepository;
 use App\Repository\Auth\AuthRepositoryImpl;
+use App\Repository\WasteBank\WasteBankRepository;
+use App\Repository\WasteBank\WasteBankRepositoryImpl;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryPatternProvider extends ServiceProvider
@@ -15,6 +17,9 @@ class RepositoryPatternProvider extends ServiceProvider
     {
         $this->app->singleton(AuthRepository::class, function() {
             return new AuthRepositoryImpl();
+        });
+        $this->app->singleton(WasteBankRepository::class, function() {
+            return new WasteBankRepositoryImpl();
         });
     }
 
