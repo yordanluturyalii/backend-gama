@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoryDepositController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\DepositTrashController;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,5 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/v1/deposit/trash', [DepositTrashController::class, 'depositTrash'])->name('deposit.trash');
     Route::get('/v1/waste-bank', [DepositTrashController::class, 'getWasteBank'])->name('get.waste.bank');
     Route::get('/v1/waste-bank/trash', [DepositTrashController::class, 'getWasteType'])->name('get.waste.type');
+    Route::get('/v1/deposit/trash/history', [HistoryDepositController::class, 'getHistory'])->name('get.history.deposit');
 });

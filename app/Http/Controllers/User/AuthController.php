@@ -86,7 +86,7 @@ class AuthController extends Controller
     public function redirectAuth() {
         return response()->json([
             'url' => Socialite::driver('google')->redirect()->getTargetUrl()
-        ]);
+        ], 200);
     }
 
     public function handleAuthGoogle() {
@@ -104,6 +104,6 @@ class AuthController extends Controller
             'message' => 'Login Success',
             'user' => new UserResource($user),
             'token' => $user->createToken($socialite->getEmail())->plainTextToken
-        ]);
+        ], 200);
     }
 }

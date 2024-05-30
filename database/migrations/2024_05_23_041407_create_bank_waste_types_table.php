@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('waste_bank_id')->constrained()->onDelete('cascade');
             $table->foreignId('waste_type_id')->constrained()->onDelete('cascade');
-            $table->double('price');
+            $table->double('price')->nullable();
             $table->timestamps();
         });
     }

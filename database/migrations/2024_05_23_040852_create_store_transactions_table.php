@@ -18,7 +18,7 @@ return new class extends Migration
             $table->double('total')->nullable();
             $table->integer('transaction_type');
             $table->string('address')->nullable();
-            $table->dateTime('visit_date');
+            $table->dateTime('visit_date')->nullable();
             $table->timestamps();
         });
     }

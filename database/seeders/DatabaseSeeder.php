@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);$
 
-        // $this->call(WasteBankSeeder::class);
-        // $this->call(WasteTypeSeeder::class);
+        $this->call(WasteBankSeeder::class);
+        $this->call(WasteTypeSeeder::class);
         $this->call(BankWasteTypeSeeder::class);
     }
 }
