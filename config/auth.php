@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'waste_bank' => [
+            'driver' => 'session',
+            'provider' => 'waste_banks',
+        ]
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'waste_banks' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\WasteBank::class,
         ],
 
         // 'users' => [
