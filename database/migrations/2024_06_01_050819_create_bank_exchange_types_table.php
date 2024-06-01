@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bank_waste_types', function (Blueprint $table) {
+        Schema::create('bank_exchange_types', function (Blueprint $table) {
             $table->id();
             $table->foreignId('waste_bank_id')->constrained()->onDelete('cascade');
-            $table->foreignId('waste_type_id')->unique()->constrained()->onDelete('cascade');
+            $table->foreignId('exchange_type_id')->unique()->constrained()->onDelete('cascade');
             $table->double('price');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bank_waste_types');
+        Schema::dropIfExists('bank_exchange_types');
     }
 };

@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transaction_statuses', function (Blueprint $table) {
+        Schema::create('exchange_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('store_transaction_id')->constrained()->onDelete('cascade');
-            $table->integer('status');
-            $table->timestamp('date');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transaction_statuses');
+        Schema::dropIfExists('exchange_types');
     }
 };

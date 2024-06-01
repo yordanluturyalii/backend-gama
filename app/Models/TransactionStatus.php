@@ -12,6 +12,7 @@ class TransactionStatus extends Model
 
     protected $fillable = [
         'store_transaction_id',
+        'exchange_transaction_id',
         'status',
         'date'
     ];
@@ -19,5 +20,10 @@ class TransactionStatus extends Model
     public function storeTransaction(): BelongsTo
     {
         return $this->belongsTo(StoreTransaction::class);
+    }
+
+    public function exchangeTransaction(): BelongsTo
+    {
+        return $this->belongsTo(ExchangeTransaction::class);
     }
 }
