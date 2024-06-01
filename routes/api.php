@@ -30,4 +30,5 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/v1/waste-bank', [DepositTrashController::class, 'getWasteBank'])->name('get.waste.bank');
     Route::get('/v1/waste-bank/trash', [DepositTrashController::class, 'getWasteType'])->name('get.waste.type');
     Route::get('/v1/deposit/trash/history', [HistoryDepositController::class, 'getHistory'])->name('get.history.deposit');
+    Route::get('/v1/deposit/trash/history/{transactionId}', [HistoryDepositController::class, 'getDetailHistory'])->name('get.history.deposit.detail');
 });
