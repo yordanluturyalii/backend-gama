@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('/v1/auth/register', [AuthController::class, 'register'])->name('user.register');
 Route::post('/v1/auth/login', [AuthController::class, 'login'])->name('user.login');
 
-Route::middleware(["web"])->group(function() {
-    Route::get('/v1/auth/google/redirect', [AuthController::class, 'redirectAuth'])->name('user.redirect.google');
-    Route::get("/v1/auth/google", [AuthController::class, "handleAuthGoogle"])->name("user.auth.google");
+Route::middleware(['cors'])->group(function () {
+    Route::get('/v1/auth', [AuthController::class, 'redirectAuth'])->name('user.redirect.google');
+    Route::get("/v1/auth/callback", [AuthController::class, "handleAuthGoogle"])->name("user.auth.google");
 });
 
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware('auth:sanctum')->group(function () {
     Route::post('/v1/auth/logout', [AuthController::class, 'logout'])->name('user.logout');
     Route::post('/v1/deposit/trash', [DepositTrashController::class, 'depositTrash'])->name('deposit.trash');
     Route::get('/v1/waste-bank', [DepositTrashController::class, 'getWasteBank'])->name('get.waste.bank');
