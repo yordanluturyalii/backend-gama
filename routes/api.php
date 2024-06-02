@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\HistoryDepositController;
+use App\Http\Controllers\User\HistoryDepositController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\User\DepositTrashController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/v1/auth/register', [AuthController::class, 'register'])->name('user.register');
 Route::post('/v1/auth/login', [AuthController::class, 'login'])->name('user.login');
 
-Route::middleware(['cors'])->group(function () {
-    Route::get('/v1/auth', [AuthController::class, 'redirectAuth'])->name('user.redirect.google');
-    Route::get("/v1/auth/callback", [AuthController::class, "handleAuthGoogle"])->name("user.auth.google");
-});
+Route::get('/v1/auth', [AuthController::class, 'redirectAuth'])->name('user.redirect.google');
+Route::get("/v1/auth/callback", [AuthController::class, "handleAuthGoogle"])->name("user.auth.google");
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/v1/auth/logout', [AuthController::class, 'logout'])->name('user.logout');
@@ -31,4 +30,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/waste-bank/trash', [DepositTrashController::class, 'getWasteType'])->name('get.waste.type');
     Route::get('/v1/deposit/trash/history', [HistoryDepositController::class, 'getHistory'])->name('get.history.deposit');
     Route::get('/v1/deposit/trash/history/{transactionId}', [HistoryDepositController::class, 'getDetailHistory'])->name('get.history.deposit.detail');
+    Route::get('/v1/profile', [ProfileController::class, 'getProfileUser'])->name('user.profile');
+    Route::get('/v1/profile/wallet', [ProfileController::class, 'getBalanceUser'])->name('user.balance');
 });

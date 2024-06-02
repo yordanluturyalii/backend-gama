@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string("address");
-            $table->string("phone_number")->unique();
+            $table->string("phone_number");
             $table->string('email')->unique();
             $table->string('google_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();

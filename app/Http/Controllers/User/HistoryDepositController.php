@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\DepositHistoryResource;
 use App\Models\BankWasteType;
 use App\Models\StoreTransaction;

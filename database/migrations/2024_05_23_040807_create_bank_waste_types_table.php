@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bank_waste_types', function (Blueprint $table) {
             $table->id();
             $table->foreignId('waste_bank_id')->constrained()->onDelete('cascade');
-            $table->foreignId('waste_type_id')->unique()->constrained()->onDelete('cascade');
+            $table->foreignId('waste_type_id')->constrained()->onDelete('cascade');
             $table->double('price');
             $table->timestamps();
         });

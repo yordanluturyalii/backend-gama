@@ -92,7 +92,8 @@ class AuthController extends Controller
     public function handleAuthGoogle() {
         try {
             $socialite = Socialite::driver("google")->stateless()->user();
-        } catch(ClientException $e) {
+        } 
+        catch(ClientException $e) {
             return response()->json([
                 'message' => 'Invalid credentials provided'
             ], 422);
