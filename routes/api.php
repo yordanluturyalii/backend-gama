@@ -30,6 +30,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/v1/waste-bank/trash', [DepositTrashController::class, 'getWasteType'])->name('get.waste.type');
     Route::get('/v1/deposit/trash/history', [HistoryDepositController::class, 'getHistory'])->name('get.history.deposit');
     Route::get('/v1/deposit/trash/history/{transactionId}', [HistoryDepositController::class, 'getDetailHistory'])->name('get.history.deposit.detail');
+    Route::post('/v1/exchange', [DepositTrashController::class, 'exchange'])->name('exchange');
+    Route::get('/v1/waste-bank/exchange', [DepositTrashController::class, 'getExchangeType'])->name('get.exchange.type');
+    Route::get('/v1/exchange/history', [HistoryDepositController::class, 'getExchangeHistory'])->name('get.history.exchange');
+    Route::get('/v1/exchange/history/{transactionId}', [HistoryDepositController::class, 'getExchangeDetailHistory'])->name('get.history.exchange.detail');
     Route::get('/v1/profile', [ProfileController::class, 'getProfileUser'])->name('user.profile');
     Route::get('/v1/profile/wallet', [ProfileController::class, 'getBalanceUser'])->name('user.balance');
 });
