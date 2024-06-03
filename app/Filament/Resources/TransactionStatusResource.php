@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\TransactionStatusResource\Pages;
 use App\Filament\Resources\TransactionStatusResource\RelationManagers;
 use App\Models\TransactionStatus;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -71,7 +72,20 @@ class TransactionStatusResource extends Resource
                         0 => 'Menunggu Konfirmasi',
                         1 => 'Disetujui',
                         2 => 'Ditolak',
-                    ]),
+                    ])
+                    ->afterStateUpdated(function ($state, $record) {
+                        if ($record->store_transaction_id) {
+                            // Kode untuk store transaction
+                            $user_id = $record->storeTransaction->user->id;
+                            $user = User::findOrFail($user_id);
+                            $user->deposit($record->storeTransaction->total);
+                        } elseif ($record->exchange_transaction_id) {
+                            // Kode untuk exchange transaction
+                            $user_id = $record->exchangeTransaction->user->id;
+                            $user = User::findOrFail($user_id);
+                            $user->withdraw($record->exchangeTransaction->total);
+                        }
+                    }),
                     TextColumn::make('date')
                 ]),
             ])
