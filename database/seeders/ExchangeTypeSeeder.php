@@ -14,15 +14,15 @@ class ExchangeTypeSeeder extends Seeder
     public function run(): void
     {
         $wasteType = new ExchangeType();
-        $wasteType->name = "Minyak";
+        $wasteType->name = "Minyak 1/2 Liter";
         $wasteType->save();
 
         $wasteType = new ExchangeType();
-        $wasteType->name = "Beras";
+        $wasteType->name = "Beras 1 Kg";
         $wasteType->save();
 
         $wasteType = new ExchangeType();
-        $wasteType->name = "Telur";
+        $wasteType->name = "Telur 1/2 Liter";
         $wasteType->save();
     }
 }

@@ -14,23 +14,15 @@ class WasteTypeSeeder extends Seeder
     public function run(): void
     {
         $wasteType = new WasteType();
-        $wasteType->name = "Plastik";
+        $wasteType->name = "Botol Plastik";
+        $wasteType->save();
+
+        $wasteType = new WasteType();
+        $wasteType->name = "Kardus";
         $wasteType->save();
 
         $wasteType = new WasteType();
         $wasteType->name = "Kertas";
-        $wasteType->save();
-        
-        $wasteType = new WasteType();
-        $wasteType->name = "Karton";
-        $wasteType->save();
-
-        $wasteType = new WasteType();
-        $wasteType->name = "Besi";
-        $wasteType->save();
-
-        $wasteType = new WasteType();
-        $wasteType->name = "Kayu";
         $wasteType->save();
     }
 }
